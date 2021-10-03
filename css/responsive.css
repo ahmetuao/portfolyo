@@ -1,0 +1,17 @@
+@media(max-width:500px) {
+  #bootstrapIcon {
+    display: none;
+  }
+  .navbar-brand {
+    width: 50%;
+    font-size: 14px;
+  }
+  .navbar-toggler-icon {
+    font-size: xx-small;
+  }
+
+  #yorumlarPP {
+    margin: 1rem auto;
+  }
+
+}

@@ -1,1 +1,347 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FONTS GOOGLE -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/responsive.css">
+  <link rel="stylesheet" href="./css/main.css">
+  
+  <title>Portfolio Enoca</title>
+
+  <!-- JQUERY -->
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+  <!-- STYLE -->
+  <style>
+    html {
+      font-family: "Open Sans", sans-serif;
+    }
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+  </style>
+
+  <!-- SCRIPT -->
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $("#comment").click(function(){
+        let inputVal = $("#yorum").val();
+        let userName = $("#userName").val();
+        if(inputVal != '' && userName != '') {
+          $("#comments").append(`<div id="commentArea"><div class="row p-3 mb-3" style="background-color:rgb(245, 245, 245);">
+          <div id="yorumlarPP" class="border col-lg-4 d-flex flex-column align-items-center" style="width: fit-content;">
+            <h6>${userName}</h6>
+            <div><img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" width="100vw"></div>
+          </div>
+          <div class="d-flex flex-row align-items-center mx-auto col-lg-7">${inputVal}</div>
+          <div class="col-lg-1 d-flex flex-row align-items-center justify-content-center"><button id="remove" class="bg-danger" type="button"><svg class="text-light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M864 256H736v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zm-200 0H360v-72h304v72z" fill="currentColor"/></svg>
+          </button></div>
+        </div></div>`)
+        }
+      })
+      $(document).on('click', '#remove', function(){
+        $(this).closest("#commentArea").remove();
+      })
+
+      
+    })
+  </script>
+</head>
+<body>
+  <!-- HEADER SECTION -->
+  <section id="header">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <div id="bootstrapIcon" class="me-1">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path d="M0 222.991C0 241.223 14.779 256 33.009 256H222.99C241.223 256 256 241.221 256 222.991V33.01C256 14.777 241.221 0 222.991 0H33.01C14.777 0 0 14.779 0 33.009V222.99z" fill="#563D7C"/><path d="M106.158 113.238V76.985h31.911c3.04 0 5.97.253 8.792.76c2.822.506 5.319 1.41 7.49 2.713c2.17 1.303 3.907 3.112 5.21 5.427c1.302 2.316 1.954 5.283 1.954 8.9c0 6.513-1.954 11.217-5.862 14.111c-3.907 2.895-8.9 4.342-14.979 4.342h-34.516zM72.075 50.5v155h75.112c6.947 0 13.713-.868 20.298-2.605c6.585-1.737 12.446-4.414 17.584-8.032c5.137-3.618 9.226-8.286 12.265-14.002c3.04-5.717 4.559-12.483 4.559-20.298c0-9.697-2.352-17.982-7.055-24.856c-4.704-6.875-11.832-11.687-21.384-14.437c6.947-3.328 12.194-7.598 15.74-12.808c3.545-5.21 5.318-11.722 5.318-19.538c0-7.236-1.194-13.314-3.582-18.235c-2.388-4.92-5.753-8.864-10.095-11.831c-4.341-2.967-9.551-5.102-15.63-6.404c-6.078-1.303-12.808-1.954-20.189-1.954H72.075zm34.083 128.515v-42.549h37.121c7.381 0 13.315 1.7 17.802 5.102c4.486 3.401 6.73 9.081 6.73 17.041c0 4.053-.688 7.381-2.063 9.986c-1.375 2.605-3.22 4.668-5.536 6.187c-2.315 1.52-4.993 2.605-8.032 3.257c-3.04.65-6.223.976-9.552.976h-36.47z" fill="#FFF"/></svg>
+        </div>
+        <a class="navbar-brand" href="">Ahmet Yılmaz Ustaalioğlu | Portfolyo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="navbar-nav me-auto mb-2 mb-lg-0" style="visibility: hidden;">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path d="M0 222.991C0 241.223 14.779 256 33.009 256H222.99C241.223 256 256 241.221 256 222.991V33.01C256 14.777 241.221 0 222.991 0H33.01C14.777 0 0 14.779 0 33.009V222.99z" fill="#563D7C"/><path d="M106.158 113.238V76.985h31.911c3.04 0 5.97.253 8.792.76c2.822.506 5.319 1.41 7.49 2.713c2.17 1.303 3.907 3.112 5.21 5.427c1.302 2.316 1.954 5.283 1.954 8.9c0 6.513-1.954 11.217-5.862 14.111c-3.907 2.895-8.9 4.342-14.979 4.342h-34.516zM72.075 50.5v155h75.112c6.947 0 13.713-.868 20.298-2.605c6.585-1.737 12.446-4.414 17.584-8.032c5.137-3.618 9.226-8.286 12.265-14.002c3.04-5.717 4.559-12.483 4.559-20.298c0-9.697-2.352-17.982-7.055-24.856c-4.704-6.875-11.832-11.687-21.384-14.437c6.947-3.328 12.194-7.598 15.74-12.808c3.545-5.21 5.318-11.722 5.318-19.538c0-7.236-1.194-13.314-3.582-18.235c-2.388-4.92-5.753-8.864-10.095-11.831c-4.341-2.967-9.551-5.102-15.63-6.404c-6.078-1.303-12.808-1.954-20.189-1.954H72.075zm34.083 128.515v-42.549h37.121c7.381 0 13.315 1.7 17.802 5.102c4.486 3.401 6.73 9.081 6.73 17.041c0 4.053-.688 7.381-2.063 9.986c-1.375 2.605-3.22 4.668-5.536 6.187c-2.315 1.52-4.993 2.605-8.032 3.257c-3.04.65-6.223.976-9.552.976h-36.47z" fill="#FFF"/></svg>
+          </div>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#hakkimda">Hakkımda</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#isler" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Yaptığım İşler
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#staj">Staj</a></li>
+                <li><a class="dropdown-item" href="#projeler">Projeler</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="iletisim">İletişim</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#yorumlar">Yorumlar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#iletisim">İletişim</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- HAKKIMDA SECTION -->
+<div>
+  <section id="hakkimda" class="text-center my-5" style="margin-top: 5rem !important;">
+    <div><img class="" src="./ben.jpg" width="200vw"></div>
+    <div class="my-5">
+      <h2 class="heading-big">Ahmet Ustaalioğlu</h2>
+      <p class="fst-italic">Computer Engineer | Kişisel Web Sitesi</p>
+      <div class="btn btn-danger py-1 px-3"><a class="text-light text-decoration-none" href="https://www.github.com/ahmetuao" target="_blank">Github Profilim</a></div>
+      <div class="mt-5"><strong>Kapsamlı Portfolyom İçin</strong></div><hr class="w-25 mx-auto">
+      <div><a href="https://ahmetuao.github.io/portfolio-with-angular" class="text-decoration-none text-danger" target="_blank">Tıklayınız<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="auto" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 139"><g fill="none" fill-rule="evenodd"><g fill="#B52E31"><path d="M150.6 102.8v-63h8.1l38.5 50.7V39.8h7.7v63h-8.1l-38.5-51.2v51.2h-7.7z"/><path d="M267.6 100.3c-5.1 1.9-10.6 2.9-16.4 2.9c-22.8 0-34.2-10.9-34.2-32.8c0-20.7 11-31.1 33-31.1c6.3 0 12.2.9 17.6 2.6v7c-5.4-2.1-11-3.1-16.7-3.1c-17.2 0-25.8 8.2-25.8 24.4c0 17.5 8.5 26.2 25.4 26.2c2.7 0 5.7-.4 9-1.1V74.2h8.1v26.1z"/><path d="M280.6 78.5V39.8h8.1v38.7c0 12.1 6 18.2 18.1 18.2c12 0 18.1-6.1 18.1-18.2V39.8h8.1v38.7c0 16.5-8.7 24.8-26.2 24.8s-26.2-8.3-26.2-24.8z"/><path d="M355.6 39.8v56.4h33v6.6h-41.1v-63h8.1z"/><path d="M400.3 102.8h-8.5l31.3-71.3l31.3 71.3h-9L437.3 83h-20.8l2.2-6.6h15.9l-11.8-28.5l-22.5 54.9z"/><path d="M463.1 102.8v-63H490c12 0 18 5 18 15.1c0 8.2-5.9 14.3-17.6 18.2l21.6 29.7h-10.7l-20-28.3v-5.3c12-1.9 18.1-6.5 18.1-13.9c0-5.8-3.3-8.7-10-8.7h-18v56.2h-8.3z"/></g><path d="M0 23L64.5 0l66.2 22.6l-10.7 85.3l-55.5 30.7l-54.6-30.3L0 23z" fill="#E23237"/><path d="M130.7 22.6L64.5 0v138.6l55.5-30.7l10.7-85.3z" fill="#B52E31"/><path d="M64.6 16.2l-40.2 89.4l15-.3l8.1-20.2H83.4l8.8 20.4l14.3.3l-41.9-89.6zm.1 28.7l13.6 28.4H52.8l11.9-28.4z" fill="#FFF"/></g></svg></a>
+      </div>
+    </div>
+    <div class="bg-dark my-5">
+      <img width="20%" src="https://www.maltepe.edu.tr/Content/Media/CkEditor/1206201804004989-MaltepeUniversitesi-EN-Pozitif.png">
+    </div>
+    <hr class="w-25 mx-auto">
+    <div class="container fst-italic"><p><strong><h6>Maltepe Üniversitesi Bilgisayar Mühendisliği (İngilizce)</h6></strong> bölümü mezunuyum. Hazırlık sınıfı ile beraber 5 yıllık üniversite serüvenim boyunca, bilginin gücüne inanarak her gün yeni şeyler öğrenmenin zevkini tadarak; bugün de öğrenmeye devam eden, teknolojiyi takip eden bir bilgisayar mühendisi olarak mesleğimi icra etmekteyim. <br/> Okul Bitirme Projesi kapsamında E-Ticaret içeriğine sahip bir Tatil-Seyahat Blog'u geliştirdim.  </p></div>
+    <hr class="w-50 mx-auto">
+    
+  </section>
+
+
+
+  <!-- YAPTIĞIM İŞLER SECTION -->
+  <section class="bg-dark">
+    <div id="staj" class="text-center text-white py-3"><h3>Staj Yaptığım Kurumlar</h3></div>
+
+    <div class="container text-white d-flex flex-row justify-content-center py-5 bg-light">
+      <div class="row text-dark w-100">
+        <!-- <div class="col-lg-6 bg-success w-100">deneme</div>
+        <div class="col-lg-6 bg-danger w-100">deneme</div> -->
+      
+        <div class="col-lg-6 text-center">
+          <div style="height: 200px;" class="shadow-lg"><img src="https://media-exp1.licdn.com/dms/image/C560BAQGMxNTf7XUqKQ/company-logo_200_200/0/1519867982235?e=2159024400&v=beta&t=Js29TFdVAx4fQS27eoaWTGV_a2-p89ECVWQA3FyNcp8"></div>
+          <div class="text-dark mt-5">
+            <p>Zorunlu okul stajımı "Etiya Bilgi Teknolojileri"nde yaptım. 30 iş günü staj süresince, 'Front-End' ağırlıklı olarak, bir yönetim paneli geliştirme sürecinde aktif rol aldım.
+              <br/>
+              <strong>Staj Süresince Öğrendiğim ve Geliştirdiğim Teknolojiler:</strong>
+              <div>- Angular -</div>
+              <div>- Spring Boot -</div>
+              <div>- Spring Security -</div>
+              <div>- Keycloak -</div>
+              <div>- Java -</div>
+              <div>- Docker -</div>
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center border-start border-dark">
+          <div style="height: 200px;" class="shadow-lg"><img width="50%" src="https://maxithings.com/patterns/logoBeyaz.png"></div>
+          <div class="text-dark mt-5">
+            <p>Gönüllü olarak 3ay "MaxiThings Software" bünyesinde staj yaptım. 3 aylık staj süresince projelerin 'Front-End' kısımlarında aktif rol aldım.
+              <br/>
+              <strong>Staj Süresince Öğrendiğim ve Geliştirdiğim Teknolojiler:</strong>
+              <div>- HTML -</div>
+              <div>- CSS -</div>
+              <div>- Bootstrap -</div>
+              <div>- JavaScript -</div>
+              <div>- React -</div>
+              <div>- NextJS -</div>
+            </p>
+          </div>
+        </div>
+    </div>
+
+    </div>
+
+    <div id="projeler" class="text-center text-white py-3"><h3>PROJELER</h3></div>
+
+    <div class="container text-dark d-flex flex-row justify-content-center py-5 bg-light">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card" style="width: 100%; height: 900px;">
+            <div style="height: 350px;">
+              <div style="height: 200px;" class="text-center">
+                <img src="https://miro.medium.com/max/399/1*i607ZGRiS33cjjvLUK8QPA.png"  class="card-img-top w-50 mx-auto" alt="...">
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title">HTML / CSS / BOOTSTRAP</h5><br>
+                <p class="card-text fst-italic">HTML, CSS, Bootstrap kullanarak geliştirmiş olduğum bazı projeler.</p>
+              </div>
+            </div>
+            
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                <div>
+                  <strong>HTML/CSS Portfolyo Projesi</strong><br>
+                  <span>HTML ve CSS kullanarak oluşturmuş olduğum bir tek sayfalık portfolyo</span>
+                </div>
+                <div class="btn btn-dark" style="font-size:small;"><a class="text-white text-decoration-none" href="https://github.com/ahmetuao/portfolio-HTML-CSS" target="_blank">Github Link</a></div>
+              </li>
+              <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                <div>
+                  <strong>İlanYorumu | Responsive Landing Page</strong><br>
+                  <span>HTML, CSS ve Bootstrap kullanarak oluşturmuş olduğum bir tek sayfalık Landing Page</span>
+                </div>
+                <div class="btn btn-dark" style="font-size:small;"><a class="text-white text-decoration-none" href="https://github.com/ahmetuao/ResponsiveLandingPage" target="_blank">Github Link</a></div>
+              </li>
+              <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                <div>
+                  <strong>BuPlaka | Responsive Landing Page</strong><br>
+                  <span>HTML, CSS ve Bootstrap kullanarak oluşturmuş olduğum bir tek sayfalık Landing Page</span>
+                </div>
+                <div class="btn btn-dark" style="font-size:small;"><a class="text-white text-decoration-none" href="https://github.com/ahmetuao/LandingPage" target="_blank">Github Link</a></div>
+              </li>
+              <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                <div>
+                  <strong>Hooop.de | Public Project</strong><br>
+                  <span>İçerisinde aktif rol aldığım bir proje. 5 adet sayfasını; HTML,CSS ve bootstrap yaparak oluşturdum</span>
+                  <br><span><strong>Linkler:</strong></span><br>
+                  <a href="https://hooop.de/de/markt-empfehlen/" target="_blank">Markt Empfehlen</a> <br>
+                  <a href="https://hooop.de/de/market-anmelden/" target="_blank">Market Anmalden</a> <br>
+                  <a href="https://hooop.de/de/kundenservice/" target="_blank">Kundenservice/Kontakt</a> <br>
+                  <a href="https://hooop.de/de/faq" target="_blank">FAQ</a> <br>
+                  <a href="https://hooop.de/de/impressum" target="_blank">Impressum</a>
+                
+                </div>
+                </li> 
+            </ul>
+          </div>
+        </div>
+  
+        <div class="col-lg-6">
+          <div class="card" style="width: 100%; height: 900px;">
+            <div style="height: 350px;">
+              <div style="height: 200px;" class="text-center">
+                <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/119889027/original/5c0a7ddab0bd2244418142606b6c49f66db15ed9/build-webapp-in-javascript-reactjs-and-angularjs.png"  class="card-img-top w-50 mx-auto" alt="...">
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title">Js/React/Angular</h5><br>
+                <p class="card-text fst-italic">JavaScript ve frameworklerinden olan 'React' ve 'Angular' ile geliştirdiğim bazı projeler.</p>
+              </div>
+            </div>
+            
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                <div>
+                  <strong>Portfolio Web Application with Angular</strong><br>
+                  <span>Angular kullanarak geliştirdiğim, kendime ait kapsamlı bir portfolyo uygulaması.</span>
+                </div>
+                <div class="btn btn-dark" style="font-size:small;"><a class="text-white text-decoration-none" href="https://github.com/ahmetuao/portfolio-with-angular" target="_blank">Github Link</a></div>
+              </li>
+              <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                <div>
+                  <strong>Ecommerce Web Application with Angular</strong><br>
+                  <span>Angular ile geliştirdiğim bir alışveriş uygulaması :)</span>
+                </div>
+                <div class="btn btn-dark" style="font-size:small;"><a class="text-white text-decoration-none" href="https://github.com/ahmetuao/ecommerce-with-angular" target="_blank">Github Link</a></div>
+              </li>
+              <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                <div>
+                  <strong>Breaking Bad Project | REACT</strong><br>
+                  <span>Çok sevdiğim ve defalarca izlediğim bir dizi olan 'Breaking Bad'e ihafen geliştirmiş olduğum React Projesi</span>
+                </div>
+                <div class="btn btn-dark" style="font-size:small;"><a class="text-white text-decoration-none" href="https://github.com/ahmetuao/BreakingBad-ReactProject" target="_blank">Github Link</a></div>
+              </li>
+              <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                <div>
+                  <strong>Ecommerce Project | REACT</strong><br>
+                  <span>React kullanarak oluşturmuş olduğum bir Ecommerce Projesi</span>
+                </div>
+                <div class="btn btn-dark" style="font-size:small;"><a class="text-white text-decoration-none" href="https://github.com/ahmetuao/ReactEcommerceProject" target="_blank">Github Link</a></div>
+              </li>
+              <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                <div>
+                  <strong>Northwind-Redux Project | REACT</strong><br>
+                  <span>React Redux kullanarak oluşturmuş olduğum bir Proje</span>
+                </div>
+                <div class="btn btn-dark" style="font-size:small;"><a class="text-white text-decoration-none" href="https://github.com/ahmetuao/northwing-redux" target="_blank">Github Link</a></div>
+              </li>
+              <li class="list-group-item d-flex flex-row justify-content-between align-items-center">
+                <div>
+                  <strong>NextJS Project</strong><br>
+                  <span>NextJS kullanarak geliştirmiş olduğum bir uygulama</span>
+                </div>
+                <div class="btn btn-dark" style="font-size:small;"><a class="text-white text-decoration-none" href="https://github.com/ahmetuao/NextJSproject" target="_blank">Github Link</a></div>
+              </li>
+            </ul>
+            <div class="card-body mx-auto d-flex flex-row align-items-center text-center">
+              <a class="text-danger text-decoration-underline fs-5" href="https://ahmetuao.github.io/portfolio-with-angular" target="_blank" class="card-link">Kapsamlı Portfolyo Web Uygulamamı Ziyaret Edebilirsiniz</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- YORUMLAR SECTION -->
+  <section id="yorumlar" class="mt-5">
+    <h3 class="text-center">YORUMLAR</h3>
+    <div id="yorumlar" class="container mb-5 border p-3">
+      <div id="comments" class="col px-3">
+        <!-- COMMENTS AREA -->
+        <!-- COMMENTS AREA -->
+        <!-- COMMENTS AREA -->
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- İLETİŞİM SECTION -->
+  <section id="iletisim" class="mt-5">
+    <h3 class="text-center">İLETİŞİM</h3>
+    <hr class="w-50 mx-auto">
+    <div class="container mb-5 mt-3">
+      <form class="w-50 mx-auto">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Kullanıcı Adı</label>
+          <input id="userName" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputComment" class="form-label">Yorumunuz</label>
+          <textarea id="yorum" class="md-textarea form-control" rows="3"></textarea>
+        </div>
+        <button id="comment" type="button" class="btn btn-dark">Gönder</button>
+      </form>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="row bg-dark text-white p-3 w-100 m-0 align-items-center">
+      <div class="col">
+        Design by <br><strong>Ahmet Yılmaz Ustaalioğlu</strong>
+      </div>
+      <div id="icons" class="col d-flex flex-row justify-content-end">
+        <div><a href="https://www.linkedin.com/in/ahmet-yılmaz-ustaalioğlu-a42b7a205/" target="_blank"><svg class="text-white p-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 2.838A1.838 1.838 0 0 1 2.838 1H21.16A1.837 1.837 0 0 1 23 2.838V21.16A1.838 1.838 0 0 1 21.161 23H2.838A1.838 1.838 0 0 1 1 21.161V2.838zm8.708 6.55h2.979v1.496c.43-.86 1.53-1.634 3.183-1.634c3.169 0 3.92 1.713 3.92 4.856v5.822h-3.207v-5.106c0-1.79-.43-2.8-1.522-2.8c-1.515 0-2.145 1.089-2.145 2.8v5.106H9.708V9.388zm-5.5 10.403h3.208V9.25H4.208v10.54zM7.875 5.812a2.063 2.063 0 1 1-4.125 0a2.063 2.063 0 0 1 4.125 0z" fill="currentColor"/></g></svg>
+        </a></div>
+  
+        <div><a href="https://www.instagram.com/ahmet.uao/" target="_blank"><svg class="text-white p-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.465 1.066C8.638 1.012 9.012 1 12 1c2.988 0 3.362.013 4.534.066c1.172.053 1.972.24 2.672.511c.733.277 1.398.71 1.948 1.27c.56.549.992 1.213 1.268 1.947c.272.7.458 1.5.512 2.67C22.988 8.639 23 9.013 23 12c0 2.988-.013 3.362-.066 4.535c-.053 1.17-.24 1.97-.512 2.67a5.396 5.396 0 0 1-1.268 1.949c-.55.56-1.215.992-1.948 1.268c-.7.272-1.5.458-2.67.512c-1.174.054-1.548.066-4.536.066c-2.988 0-3.362-.013-4.535-.066c-1.17-.053-1.97-.24-2.67-.512a5.397 5.397 0 0 1-1.949-1.268a5.392 5.392 0 0 1-1.269-1.948c-.271-.7-.457-1.5-.511-2.67C1.012 15.361 1 14.987 1 12c0-2.988.013-3.362.066-4.534c.053-1.172.24-1.972.511-2.672a5.396 5.396 0 0 1 1.27-1.948a5.392 5.392 0 0 1 1.947-1.269c.7-.271 1.5-.457 2.67-.511zm8.98 1.98c-1.16-.053-1.508-.064-4.445-.064c-2.937 0-3.285.011-4.445.064c-1.073.049-1.655.228-2.043.379c-.513.2-.88.437-1.265.822a3.412 3.412 0 0 0-.822 1.265c-.151.388-.33.97-.379 2.043c-.053 1.16-.064 1.508-.064 4.445c0 2.937.011 3.285.064 4.445c.049 1.073.228 1.655.379 2.043c.176.477.457.91.822 1.265c.355.365.788.646 1.265.822c.388.151.97.33 2.043.379c1.16.053 1.507.064 4.445.064c2.938 0 3.285-.011 4.445-.064c1.073-.049 1.655-.228 2.043-.379c.513-.2.88-.437 1.265-.822c.365-.355.646-.788.822-1.265c.151-.388.33-.97.379-2.043c.053-1.16.064-1.508.064-4.445c0-2.937-.011-3.285-.064-4.445c-.049-1.073-.228-1.655-.379-2.043c-.2-.513-.437-.88-.822-1.265a3.413 3.413 0 0 0-1.265-.822c-.388-.151-.97-.33-2.043-.379zm-5.85 12.345a3.669 3.669 0 0 0 4-5.986a3.67 3.67 0 1 0-4 5.986zM8.002 8.002a5.654 5.654 0 1 1 7.996 7.996a5.654 5.654 0 0 1-7.996-7.996zm10.906-.814a1.337 1.337 0 1 0-1.89-1.89a1.337 1.337 0 0 0 1.89 1.89z" fill="currentColor"/></g></svg>
+        </a></div>
+        <div><a href="https://twitter.com/AhmetYlmazUsta1" target="_blank"><svg class="text-white p-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M23.643 4.937c-.835.37-1.732.62-2.675.733a4.67 4.67 0 0 0 2.048-2.578a9.3 9.3 0 0 1-2.958 1.13a4.66 4.66 0 0 0-7.938 4.25a13.229 13.229 0 0 1-9.602-4.868c-.4.69-.63 1.49-.63 2.342A4.66 4.66 0 0 0 3.96 9.824a4.647 4.647 0 0 1-2.11-.583v.06a4.66 4.66 0 0 0 3.737 4.568a4.692 4.692 0 0 1-2.104.08a4.661 4.661 0 0 0 4.352 3.234a9.348 9.348 0 0 1-5.786 1.995a9.5 9.5 0 0 1-1.112-.065a13.175 13.175 0 0 0 7.14 2.093c8.57 0 13.255-7.098 13.255-13.254c0-.2-.005-.402-.014-.602a9.47 9.47 0 0 0 2.323-2.41l.002-.003z" fill="currentColor"/></g></svg>
+        </a></div>
+      </div>
+    </div>
+    
+  </footer>
+</div>
+</body>
+</html>
